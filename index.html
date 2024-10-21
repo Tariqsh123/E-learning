@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+   <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>E Learning</title>
+</head>
+<body>
+    <div class="parallax">
+         <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><img src="logo.png" alt=""></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="#Courses">Courses</a></li>
+            <li><a href="#about-main-container">About Us</a></li>
+            <li><a href="#blogSlider">Blog</a></li>
+            <li><button id="nav-button">Start Quiz</button></li>
+        </ul>
+    </nav>
+
+    <!-- Quiz Page -->
+    <div id="quiz-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div id="quiz-main-container">
+                <h2 id="question"></h2>
+                <div id="options-container"></div>
+                <button id="next-button" style="display:none;">Next Question</button>
+                <div id="score-container" style="display:none;">
+                    <h3>Your Score: <span id="score"></span></h3>
+                    <button id="restart-button">Restart Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quiz Page End -->
+     <!-- Navbar End -->
+     <div id="spacer"></div>
+
+    <!-- Header -->
+    <div id="header-main-container">
+        <video autoplay loop muted class="background-video">
+            <source src="Background.mp4" type="video/mp4">
+        </video>
+        <div id="header-second-main-container">
+            <h1>Connect, Learn, Inspire</h1>
+            <p>Join a community of learners dedicated to growth and collaboration.</p>
+        </div>
+    </div>
+    <!-- Header  End-->
+
+    <div id="spacer"></div>
+     <!-- About  -->
+      <div id="about-main-container">
+        <h2>Welcome to EduSite</h2>
+        <p>Unlock your potential with EduSite, your premier destination for comprehensive learning resources. We offer a diverse range of courses in technology, arts, business, and personal development. Our expert instructors are dedicated to providing engaging content that empowers you to achieve your educational goals. Join our community of learners and embark on a transformative journey toward knowledge and skill mastery. Whether you’re looking to advance your career or pursue a personal passion, EduSite is here to support your growth every step of the way.</p>
+      </div>
+     <!-- About End -->
+      <div id="spacer"></div>
+
+
+      <!-- Course Info -->
+
+      
+          <div class="container" id="Courses">
+              <div class="card">
+                  <img src="coding 1.png" alt="Image 1">
+                  <h3>Python</h3>
+                  <p>The framework's integration with tools like TypeORM for database management and its support for GraphQL make it versatile. Engaging with the community through forums and GitHub can enhance the learning process and provide valuable insights. Regular practice and project development are key to mastering NestJS.</p>
+                  <button> More Details</button>              
+              </div>
+              <div class="card">
+                  <img src="coding 2.png" alt="Image 2">
+                  <h3>React</h3>
+                  <p>The framework's integration with tools like TypeORM for database management and its support for GraphQL make it versatile. Engaging with the community through forums and GitHub can enhance the learning process and provide valuable insights. Regular practice and project development are key to mastering NestJS.</p>
+                  <button> More Details</button>              
+                </div>
+              <div class="card">
+                  <img src="coding 3.png" alt="Image 3">
+                  <h3>Open CV</h3>
+                  <p>The framework's integration with tools like TypeORM for database management and its support for GraphQL make it versatile. Engaging with the community through forums and GitHub can enhance the learning process and provide valuable insights. Regular practice and project development are key to mastering NestJS.</p>
+                  <button> More Details</button>              
+              </div>
+              <div class="card">
+                  <img src="coding 4.png" alt="Image 4">
+                  <h3>Nest JS</h3>
+                  <p>The framework's integration with tools like TypeORM for database management and its support for GraphQL make it versatile. Engaging with the community through forums and GitHub can enhance the learning process and provide valuable insights. Regular practice and project development are key to mastering NestJS.</p>
+                  <button> More Details</button>              
+              </div>
+              <div class="card">
+                  <img src="coding 5.png" alt="Image 5">
+                  <h3>Py Torch</h3>
+                  <p>The framework's integration with tools like TypeORM for database management and its support for GraphQL make it versatile. Engaging with the community through forums and GitHub can enhance the learning process and provide valuable insights. Regular practice and project development are key to mastering NestJS.</p>
+                  <button> More Details</button>              
+              </div>
+              <div class="card">
+                  <img src="coding 6.png" alt="Image 6">
+                  <h3>Node JS</h3>
+                  <p>The framework's integration with tools like TypeORM for database management and its support for GraphQL make it versatile. Engaging with the community through forums and GitHub can enhance the learning process and provide valuable insights. Regular practice and project development are key to mastering NestJS.</p>
+                  <button> More Details</button>              
+              </div>
+          </div>
+        
+      
+      <!-- Course Info -->
+      <div id="spacer"></div>
+
+      <!-- Testimonials -->
+      <div class="testimonial-slider">
+        <div class="testimonial active">
+            <img src="testimonial 1.png" alt="Jane Doe">
+            <p>"Discover a transformative journey in coding with our website, where every lesson is designed to empower you. Gain practical skills, engage in hands-on projects, and build a supportive community that celebrates your success. Whether you're a beginner or looking to enhance your expertise, we provide the resources and guidance you need to thrive in the world of coding!"</p>
+            <h4>Jane Doe</h4>
+        </div>
+        <div class="testimonial">
+            <img src="testimonial 2.png" alt="John Smith">
+            <p>"Embark on an exciting coding adventure with our platform, where learning meets achievement! Dive into comprehensive tutorials, interactive challenges, and real-world projects tailored to boost your skills. Join a vibrant community of learners and mentors dedicated to your success, and watch as you transform your passion for coding into tangible results. Your journey to becoming a proficient coder starts here!"</p>
+            <h4>John Smith</h4>
+        </div>
+        <div class="testimonial">
+            <img src="testimonial 3.png" alt="Sarah Lee">
+            <p>"Designed to guide you from novice to expert! Experience engaging lessons, collaborative projects, and personalized feedback that empower you to master the art of programming. Join our thriving community of learners and mentors, where every achievement is celebrated and every challenge is a stepping stone to success. Your coding journey begins now—let’s turn your aspirations into reality!"</p>
+            <h4>Hanrison</h4>
+        </div>
+        <div class="testimonial">
+            <img src="testimonial 1.png" alt="John Smith">
+            <p>"Welcome to your coding journey , and real-time support to help you develop essential programming skills. Connect with fellow learners and experienced mentors in a collaborative environment that inspires growth. Whether you’re starting from scratch or looking to refine your expertise, we’re here to empower you every step of the way. Let’s code your future together!"</p>
+            <h4>Victor</h4>
+        </div>
+        <div class="testimonial">
+            <img src="testimonial 2.png" alt="Sarah Lee">
+            <p>"Unlock your coding potential with our engaging platform! Access interactive lessons, real-world projects, and a supportive community that celebrates your growth. Whether you’re a beginner or advancing your skills, we’re here to help you succeed in your coding journey!"</p>
+            <h4>Albert</h4>
+        </div>
+        <div class="testimonial">
+            <img src="testimonial 3.png" alt="John Smith">
+            <p>"Transform your coding journey with our hands-on platform! Enjoy interactive lessons, real projects, and a vibrant community ready to support your growth. Let’s code your success together!"</p>
+            <h4>Carlo</h4>
+        </div>
+        <div class="testimonial">
+            <img src="testimonial 1.png" alt="Sarah Lee">
+            <p>"Kickstart your coding journey with our interactive platform! Learn through hands-on projects and connect with a supportive community. Together, we’ll pave the way to your success in coding!"</p>
+            <h4>Will Shan</h4>
+        </div>
+  
+        <button id="testimonial-button" class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button id="testimonial-button" class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+    
+    <!-- Testimonials End -->
+    <div id="spacer"></div>
+
+
+    <!-- Blog Section -->
+    <h1 id="blog-heading">Blogs</h1>
+    <div id="blogSlider" class="blog-slider">
+        <div class="blog-container">
+            <div class="blog-box active" id="blog1">
+                <img src="Blog1.png" alt="Blog 1">
+                <div id="blog-items">
+                <h2 class="blog-title">Benefits of eLearning</h2>
+                <h4 class="blog-subheading">Microlearning</h4>
+                <p class="blog-text">Dive into the latest trends shaping the eLearning landscape, including AI-driven tools, microlearning, and immersive technologies, to keep your audience informed and ahead of the curve.</p>
+                <span class="blog-date">October 7, 2024</span>
+            </div>
+            </div>
+            <div class="blog-box active" id="blog1">
+                <img src="Blog2.png" alt="Blog 1">
+                <div id="blog-items">
+                <h2 class="blog-title"> How to Stay Motivated While Learning Online</h2>
+                <h4 class="blog-subheading">Community Support</h4>
+                <p class="blog-text">Share practical tips for maintaining focus and motivation in an online learning environment, such as setting goals, creating a study schedule, and joining online study groups.</p>
+                <span class="blog-date">October 7, 2024</span>
+            </div>
+            </div>
+            <div class="blog-box active" id="blog1">
+                <img src="Blog3.png" alt="Blog 1">
+                <div id="blog-items">
+                <h2 class="blog-title"> Best Tools and Technologies for eLearning</h2>
+                <h4 class="blog-subheading">Collaboration Platforms</h4>
+                <p class="blog-text">Provide a comprehensive overview of essential software and tools that enhance the eLearning experience, from Learning Management Systems (LMS) to content creation tools.</p>
+                <span class="blog-date">October 7, 2024</span>
+            </div>
+            </div>
+            <div class="blog-box active" id="blog1">
+                <img src="Blog4.png" alt="Blog 1">
+                <div id="blog-items">
+                <h2 class="blog-title">Case Studies of Successful eLearning Programs</h2>
+                <h4 class="blog-subheading">Innovative Examples</h4>
+                <p class="blog-text">Highlight real-world examples of organizations that have effectively implemented eLearning programs, showcasing their challenges, solutions, and outcomes.</p>
+                <span class="blog-date">October 7, 2024</span>
+            </div>
+            </div>
+            <div class="blog-box active" id="blog1">
+                <img src="Blog5.png" alt="Blog 1">
+                <div id="blog-items">
+                <h2 class="blog-title">Creating Engaging Content for Online Courses</h2>
+                <h4 class="blog-subheading">Feedback Strategies</h4>
+                <p class="blog-text">Offer insights into instructional design strategies that can help educators create compelling and interactive course content that captivates learners.</p>
+                <span class="blog-date">October 7, 2024</span>
+            </div>
+            </div>
+           
+        </div>
+        <button id="prevButton" class="slider-button">&#8592;</button>
+        <button id="nextButton" class="slider-button">&#8594;</button>
+    </div>
+      <!-- Blog Section -->
+    <div id="spacer"></div>
+
+    <!-- Footer -->
+    <footer >
+        <div>
+            <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+            <nav>
+                <a href="#" >Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </nav>
+        </div>
+    </footer>
+    <!-- Footer -->
+    </div>
+
+   
+
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,822 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Space Mono", monospace;
+}
+
+:root {
+    --main-bg: rgba(44, 62, 80, 0.8);
+    --text-color: #ECF0F1;
+    --highlight-color: #ffd257;
+    --hover-color: #ffffff;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.parallax {
+    background-image: url('background.jpg'); /* Add your background image */
+    height: 70vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1000;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
+/* NAV */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #18222cbb;
+    padding: 10px 20px;
+    
+}
+
+.logo {
+    height: 50px ;
+    width: 150px;
+}
+.logo img{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    right: 40px;
+    align-items: center;
+}
+
+.nav-list li {
+    margin: 0 15px;
+}
+
+.nav-list a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 900;
+    position: relative;
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--highlight-color);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-list a:hover {
+    color: var(--highlight-color);
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 25px;
+    background-color: var(--text-color);
+    margin: 3px 0;
+}
+
+#nav-button {
+    background-color: #ffd257;
+    color: black;
+    border: none;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 2px solid var(--text-color);
+    padding: 10px 20px;
+    font-size: 15px;
+    width: 150px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#nav-button:hover {
+    background-color: var(--hover-color);
+    border: 2px solid var(--highlight-color);
+    color: #2C3E50;
+}
+
+#nav-button:focus {
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #2C3E50;
+        padding: 20px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    .nav-list li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .content {
+        padding-top: 60px;
+    }
+}
+
+/* Header Main Container */
+#header-main-container {
+    height: 50vh; /* Adjusted height */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    opacity: 1;
+    left: 50%;
+    min-width: 100%; /* Ensure it covers the container */
+    min-height: 100%; /* Ensure it covers the container */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 1; /* Behind the text */
+    transform: translate(-50%, -50%); /* Center the video */
+    object-fit: cover; /* Cover the entire area without distortion */
+}
+
+#header-second-main-container {
+    position: relative;
+    z-index: 2; /* Ensure content is above the video */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    color: var(--text-color);
+    padding: 20px; /* Optional padding for better text spacing */
+}
+
+#header-second-main-container h1 {
+    font-size: 5vw; /* Responsive font size */
+    margin: 0;
+    font-weight: bolder;
+    color: var(--highlight-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: slideIn 1s ease forwards;
+}
+
+#header-second-main-container p {
+    font-size: 3vw; /* Responsive font size */
+    margin: 10px 0;
+    color: var(--text-color);
+    opacity: 0;
+    animation: fadeIn 1s 0.5s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Media queries for better responsiveness */
+@media (max-width: 991px) {
+    #header-second-main-container h1 {
+        font-size: 30px; /* Slightly larger for smaller screens */
+    }
+    #header-second-main-container p {
+        font-size: 20px; /* Slightly larger for smaller screens */
+    }
+    
+    #header-main-container{
+        height: 30vh;
+    }
+}
+@media (max-width: 768px) {
+    #header-second-main-container h1 {
+        font-size: 30px; /* Slightly larger for smaller screens */
+    }
+    #header-second-main-container p {
+        font-size: 20px; /* Slightly larger for smaller screens */
+    }
+    
+    #header-main-container{
+        height: 30vh;
+    }
+}
+@media (max-width: 600px) {
+    #header-second-main-containerh1 {
+        font-size: 25px; /* Slightly larger for smaller screens */
+    }
+    #header-second-main-container     p {
+        font-size: 15px; /* Slightly larger for smaller screens */
+    }
+
+    #header-main-container{
+        height: 28vh;
+    }
+}
+@media (max-width: 399px) {
+    #header-second-main-containerh1 {
+        font-size: 20px; /* Slightly larger for smaller screens */
+    }
+    #header-second-main-container p {
+        font-size: 12px; /* Slightly larger for smaller screens */
+    }
+
+    #header-main-container{
+        height: 20vh;
+    }
+}
+/* HEader End */
+
+
+#spacer {
+    height: 200px; /* Adjust as needed */
+    background-image: url('background.jpg'); /* Add your background image */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* About */
+#about-main-container {
+    height: 500px;
+    width: 100%;
+    padding: 100px;
+    background: linear-gradient(270deg, rgb(25, 74, 102), rgb(79, 182, 196), rgb(64, 164, 223));
+    background-size: 300% 300%; /* Make the background larger for the animation */
+    animation: gradientAnimation 10s ease infinite; /* Animation for gradient */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Prevents overflow */
+    position: relative; /* For positioning of child elements */
+}
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%; /* Start position */
+    }
+    50% {
+        background-position: 100% 50%; /* Middle position */
+    }
+    100% {
+        background-position: 0% 50%; /* End position */
+    }
+}
+
+#about-main-container h2, 
+#about-main-container p {
+    color: #fff; /* Light text for contrast */
+    margin-bottom: 15px;
+    opacity: 0; /* Start hidden */
+    transform: translateX(50px); /* Start from the right */
+    animation: slideIn 1s forwards; /* Apply animation */
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px); /* Move in from the right */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* End at original position */
+    }
+}
+
+/* Animation delay for the <h2> and <p> elements */
+#about-main-container h2 {
+    animation-delay: 0.2s; /* Delay for heading */
+    font-size: 50px;
+    color: #ffd257;
+    font-weight: 900;
+}
+
+#about-main-container p {
+    animation-delay: 0.4s; /* Delay for paragraph */
+    font-size: 20px;
+}
+
+@media (max-width: 991px){
+    #about-main-container h2 {
+        font-size: 40px;
+    }
+    
+    #about-main-container p {
+        font-size: 20px;
+    }
+}
+@media (max-width: 768px){
+    #about-main-container h2 {
+        font-size: 35px;
+    }
+    
+    #about-main-container p {
+        font-size: 18px;
+    }
+}
+@media (max-width: 600px){
+    #about-main-container {
+        padding: 50px;
+    }
+    #about-main-container h2 {
+        font-size: 32px;
+    }
+    #about-main-container {
+        padding: 50px;
+        height: 400px;
+    }
+    
+    #about-main-container p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 399px){
+    #about-main-container h2 {
+        font-size: 25px;
+    }
+    #about-main-container {
+        padding: 50px;
+        height: 300px;
+    }
+    
+    #about-main-container p {
+        font-size: 10px;
+    }
+}
+
+
+/* Course Info */
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line */
+    justify-content: space-around; /* Space around cards */
+    padding: 20px; /* Add padding around the container */
+    width: 100%; /* Full width */
+    background: linear-gradient(270deg, rgb(207, 125, 0), rgb(238, 193, 69), rgb(235, 165, 14));
+    background-size: 300% 300%; /* Make the background larger for the animation */
+    animation: gradientAnimation 10s ease infinite; /* Animation for gradient */
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    height: 500px;
+    text-align: center;
+    background-color: #ffffffdc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 0 1 calc(30% - 20px); /* Adjust card width and spacing */
+    margin: 10px; /* Space between cards */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-20px); /* Start position above */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+.card.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move to original position */
+}
+.card:hover {
+    transform: scale(1.05); /* Slightly scale up the card */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+}
+.card button {
+    background-color: var(--highlight-color);
+    color: #2C3E50;
+    font-weight: 500;
+    border: 2px solid #2C3E50;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 150px;
+    height: 50px;
+    position: relative;
+    top: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.card button:hover {
+    background-color: var(--hover-color);
+    border: 2px solid var(--highlight-color);
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+    font-size: 30px;
+    color: #2C3E50;
+}
+
+.card p {
+    color: #2C3E50;
+    font-size: small;
+}
+
+@media (max-width: 1200px) {
+    .card {
+        flex: 0 1 calc(45% - 20px); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 991px) {
+    .card {
+        flex: 0 1 calc(100% - 20px); /* 1 card per row */
+    }
+}
+@media (max-width: 500px) {
+    .card {
+        flex: 0 1 calc(100% - 20px); /* 1 card per row */
+    }
+    .card p {
+        font-size: small;
+
+    }
+}
+/* Course Info End */
+
+/* <!-- Testimonials --> */
+
+.testimonial-slider {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    height: 400px;
+    background: linear-gradient(270deg, rgb(25, 74, 102), rgb(79, 182, 196), rgb(64, 164, 223));
+    background-size: 300% 300%; /* Make the background larger for the animation */
+    animation: gradientAnimation 10s ease infinite; /* Animation for gradient */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.testimonial {
+    display: none;
+}
+.testimonial p{
+    font-size: 15px;
+    color: white;
+}
+.testimonial h4{
+    color: #ce9c14;
+    padding-top: 20px;
+    font-size: 30px;
+}
+.testimonial.active {
+    display: block;
+}
+
+.testimonial img {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+#testimonial-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ce9c14;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+@media (max-width: 600px) {
+
+    .testimonial img {
+        height: 150px;
+        width: 150px;
+    }
+    
+.testimonial p{
+    font-size: 10px;
+    color: white;
+}
+}/* Emd */
+
+/* Blog */
+#blog-heading{
+    text-align: center;
+    background: linear-gradient(270deg, rgb(207, 125, 0), rgb(238, 193, 69), rgb(235, 165, 14));
+    background-size: 300% 300%; /* Make the background larger for the animation */
+    animation: gradientAnimation 10s ease infinite;
+    color: #2C3E50;
+    align-items: center;
+    padding-top: 10px;
+    
+}
+.blog-slider {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    background: linear-gradient(270deg, rgb(207, 125, 0), rgb(238, 193, 69), rgb(235, 165, 14));
+    background-size: 300% 300%; /* Make the background larger for the animation */
+    animation: gradientAnimation 10s ease infinite;
+    overflow: hidden;
+    
+}
+
+.blog-container {
+    display: grid;
+    width: 90%;
+    position: relative;
+    left: 5%;
+    transition: transform 0.5s ease;
+    height: 100%;
+    background: linear-gradient(270deg, rgb(207, 125, 0), rgb(238, 193, 69), rgb(235, 165, 14));
+    background-size: 300% 300%; /* Make the background larger for the animation */
+    animation: gradientAnimation 10s ease infinite;
+}
+
+.blog-box {
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#blog-item{
+    height: 100%;
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.blog-box img {
+    width: 49%;
+    height: 500px;
+    border-radius: 8px;
+}
+
+.blog-title {
+    font-size: 1.5em;
+    margin: 10px 0;
+    padding-left: 40px;
+    color: #2C3E50;
+}
+
+.blog-subheading {
+    font-size: 1.2em;
+    color: gray;
+    padding-left: 40px;
+    color: white;
+}
+
+.blog-text {
+    font-size: 1em;
+    padding-left: 40px;
+    color: #0056b3;
+}
+
+.blog-date {
+    padding-left: 40px;
+    font-size: 0.8em;
+    color: white;
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2C3E50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#prevButton {
+    left: 10px;
+}
+
+#nextButton {
+    right: 10px;
+}
+
+@media (max-width: 600px) {
+    .blog-text {
+        font-size: 0.8em;
+    }  
+    .blog-box img {
+        width: 49%;
+        height: 300px;
+    } 
+}
+/* Quiz */
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+
+.modal-content {
+    background: linear-gradient(270deg, rgb(207, 125, 0), rgb(238, 193, 69), rgb(235, 165, 14));
+    background-size: 300% 300%; /* Make the background larger for the animation */
+    animation: gradientAnimation 10s ease infinite; /* Animation for gradient */
+    margin: 10% auto; /* 10% from the top and centered */
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    height: auto;
+    max-width: 600px; /* Max width for larger screens */
+    position: relative; /* For the close button */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+.close-button {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #f1f1f1;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#question {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+#options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between buttons */
+}
+
+.option-button {
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.option-button:hover {
+    background-color: #e0e0e0; /* Light grey on hover */
+    transform: scale(1.05); /* Slightly increase size */
+}
+
+#next-button,
+#restart-button {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    display: block; /* Center the button */
+    width: 100%; /* Full width */
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+#next-button:hover,
+#restart-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#score-container {
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+}
+
+
+/* Footer */
+footer{
+    background: linear-gradient(270deg, rgb(25, 74, 102), rgb(79, 182, 196), rgb(64, 164, 223));
+    background-size: 300% 300%; /* Make the background larger for the animation */
+    animation: gradientAnimation 10s ease infinite; /* Animation for gradient */
+    padding: 20px; 
+    color: #ffd257;
+    text-align: center;
+}
+footer nav a{
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+}
